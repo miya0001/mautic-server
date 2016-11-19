@@ -5,21 +5,9 @@ set -ex
 MAUTIC_DB_USER=${MAUTIC_DB_USER=root}
 MAUTIC_DB_NAME=${MAUTIC_DB_NAME-"mautic-tests"}
 
-if [ -e app/config/local.php ]; then
-  rm -f app/config/local.php
-fi
-
-if [ -d app/cache ]; then
-  rm -fr app/cache/*
-fi
-
-# It always drops and creates a database
 if [ ! $MAUTIC_DB_PASS ]; then
-  MAUTIC_DB_PASS=""
-  mysql -e "drop database IF EXISTS \`$MAUTIC_DB_NAME\`;" -u$MAUTIC_DB_USER
   mysql -e "create database IF NOT EXISTS \`$MAUTIC_DB_NAME\`;" -u$MAUTIC_DB_USER
 else
-  mysql -e "drop database IF EXISTS \`$MAUTIC_DB_NAME\`;" -u$MAUTIC_DB_USER -p"$MAUTIC_DB_PASS"
   mysql -e "create database IF NOT EXISTS \`$MAUTIC_DB_NAME\`;" -u$MAUTIC_DB_USER -p"$MAUTIC_DB_PASS"
 fi
 
