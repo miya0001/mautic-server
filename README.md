@@ -24,20 +24,3 @@ $ curl https://raw.githubusercontent.com/miya0001/mautic-server/master/run.sh | 
 ```
 
 Then visit [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
-
-## Environment variables
-
-|Name|Default|
-|---|---|
-|MAUTIC_DB_NAME|mautic-tests|
-|MAUTIC_DB_USER|root|
-|MAUTIC_DB_PASS|(empty)|
-
-### Usage
-
-Set `1234` for MySQL password.
-
-```
-$ export MAUTIC_DB_PASS=1234
-$ curl https://raw.githubusercontent.com/miya0001/mautic-server/master/run.sh | bash
-```

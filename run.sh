@@ -2,16 +2,6 @@
 
 set -ex
 
-MAUTIC_DB_USER=${MAUTIC_DB_USER=root}
-MAUTIC_DB_NAME=${MAUTIC_DB_NAME-"mautic-tests"}
-
-if [ ! $MAUTIC_DB_PASS ]; then
-  mysql -e "create database IF NOT EXISTS \`$MAUTIC_DB_NAME\`;" -u$MAUTIC_DB_USER
-else
-  mysql -e "create database IF NOT EXISTS \`$MAUTIC_DB_NAME\`;" -u$MAUTIC_DB_USER -p"$MAUTIC_DB_PASS"
-fi
-
-
 cat << INI > php.ini
 memory_limit = 512M
 error_reporting = E_ALL
