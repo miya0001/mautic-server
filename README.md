@@ -1,6 +1,6 @@
 # Mautic server via PHP buit-in server
 
-This is a shell script that enables you to run Mautic via PHP built-in server.
+This is a shell script that enables you to run [Mautic](https://github.com/mautic/mautic) via PHP built-in server.
 
 ## Getting Started
 
