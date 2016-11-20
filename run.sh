@@ -2,13 +2,13 @@
 
 set -ex
 
-cat << INI > php.ini
+cat << INI > /tmp/php.ini
 memory_limit = 512M
 error_reporting = E_ALL
 log_errors = On
 INI
 
-cat << 'ROUTER' > router.php
+cat << 'ROUTER' > /tmp/router.php
 <?php
 
 if ( 0 === strpos( $_SERVER['REQUEST_URI'], "/index.php" ) ) {
@@ -35,5 +35,5 @@ if ( file_exists( $root.$path ) ) {
 }
 ROUTER
 
-php -S 127.0.0.1:8080 -c php.ini ./router.php -t .
+php -S 127.0.0.1:8080 -c /tmp/php.ini /tmp/router.php -t .
 
